@@ -68,7 +68,7 @@ reward_list = []  # 记录每个回合的奖励，用于画曲线
 
 for episode in range(EPISODES):
     # 重置环境，获取初始连续状态
-    continuous_state, _ = env.reset(seed=42)
+    continuous_state, _ = env.reset()
     # 转成离散状态
     discrete_state = get_discrete_state(continuous_state)
     
@@ -134,7 +134,7 @@ for episode in range(EPISODES):
         
         # 测试并可视化（单独开一个环境）
         test_env = gym.make("CartPole-v1", render_mode="human")
-        test_state, _ = test_env.reset(seed=42)
+        test_state, _ = test_env.reset()
         test_done = False
         test_reward = 0
         while not test_done:
